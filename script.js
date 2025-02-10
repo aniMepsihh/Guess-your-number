@@ -28,6 +28,7 @@ function textAndAttempts (){
     message.textContent = `Твое число ${number}? Если нет, то твое число больше или меньше?`
     attempts ++
     attemptsDisplay.textContent = `Попытки: ${attempts}`
+    
 }
 
 function equation (){
@@ -38,17 +39,22 @@ function numberIfLess(){
     maxLimit = number
     equation()
     textAndAttempts()
-
+    if (attempts === 7){
+        guessedRight()
+    }
 }
 
 function numberIfMore(){
     minLimit = number
     equation()
     textAndAttempts()
+    if (attempts === 7){
+        guessedRight()
+    }
 }    
 
 function guessedRight(){
-    message.textContent = 'Ура, у меня получилось!'
+    message.textContent = `Ура, у меня получилось! Твое число: ${number}`
     attempts = 0
     attemptsDisplay.textContent = `Попытки: ${attempts}`
     yesBtn.style.display = 'none'
